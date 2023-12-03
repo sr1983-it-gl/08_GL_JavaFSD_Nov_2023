@@ -40,5 +40,10 @@ public class EmailApplication {
 		
 		String password = serviceObj.generatePassword();
 		System.out.println(password);
+		
+		Employee empObj 
+			= new Employee(firstname, lastname, emailAddress);
+		
+		
 	}
 }
