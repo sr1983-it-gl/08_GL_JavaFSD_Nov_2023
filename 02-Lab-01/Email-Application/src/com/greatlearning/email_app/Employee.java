@@ -5,10 +5,19 @@ public class Employee {
 	String firstname;
 	String lastname;
 	String emailAddress;
+	String password;
 	
 	// String departmentName;
 	
 	
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	public Employee(String firstname, String lastname, String emailAddress) {
 		
 		this.firstname = firstname;

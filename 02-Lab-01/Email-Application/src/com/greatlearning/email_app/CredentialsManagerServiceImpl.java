@@ -166,7 +166,10 @@ public class CredentialsManagerServiceImpl
 		return passwordBuilder.toString();
 	}	
 	@Override
-	public void displayGeneratedCredentials() {
+	public void displayGeneratedCredentials(Employee employee) {
+		
+		
+		
 		// TODO Auto-generated method stub
 		
 	}

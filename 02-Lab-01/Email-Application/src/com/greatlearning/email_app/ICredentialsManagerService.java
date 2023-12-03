@@ -8,6 +8,11 @@ public interface ICredentialsManagerService {
 
 	String generatePassword();
 	
-	void displayGeneratedCredentials();
+	
+	void displayGeneratedCredentials(Employee employee);
+
+//	void displayGeneratedCredentials(
+//			String firstname, String emailAddress,
+//			String password);
 
 }
