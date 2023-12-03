@@ -4,7 +4,9 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		testEmailAddressGeneration();
+//		testEmailAddressGeneration();
+		
+		testPasswordGeneration();
 	}
 
 	static void testEmailAddressGeneration(){
@@ -16,6 +18,18 @@ public class Main {
 			= obj.generateEmailAddress("Harshit", "Chauhan", 4);
 		
 		System.out.println(emailAddress);
+		
+	}
+	
+	static void testPasswordGeneration() {
+		
+		CredentialsManagerServiceImpl obj 
+		= new CredentialsManagerServiceImpl();
+	
+		String password 
+			= obj.generatePassword();
+		
+		System.out.println(password);
 		
 	}
 }

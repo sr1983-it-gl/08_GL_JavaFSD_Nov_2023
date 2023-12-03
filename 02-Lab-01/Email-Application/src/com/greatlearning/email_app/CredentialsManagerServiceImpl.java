@@ -56,42 +56,113 @@ public class CredentialsManagerServiceImpl
 		return emailAddressBuilder.toString();
 	}
 
-	@Override
-	public String generatePassword() {
+	public String generatePassword_Old() {
 		
-		String capitalLeters = "A.... Z";
-		String smallCaseLetters = "a....z";
+		String capitalLeters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		String smallCaseLetters = "abcdefghijklmnopqrstuvwxyz";		
+		String numbers = "0123456789";
+		String specialCharacters = "~@#$%^&*()-=+<>?'][}{";
 		
-		String numbers = "0....9";
-		String specialCharacters = "~@#$%... <>?";
-		
+		// 75
 		String allCharacters = 
-				capitalLeters + smallCaseLetters;
+				capitalLeters + smallCaseLetters
+				+ numbers + specialCharacters;
 //			TODO -> Include numbers and specialCharacters
 		
+		System.out.println("Total number of characters identified ");
+		System.out.println(allCharacters.length());
+		
+		System.out.println(allCharacters);
+		
+		int maxRange = allCharacters.length();
+		
+		StringBuilder passwordBuilder = new StringBuilder();
 		
 		for (int index = 1; index <=8; index ++) {
 			
 			java.util.Random randomObj 
 				= new java.util.Random();
 			
+			int randomValue = randomObj.nextInt(maxRange);
+			System.out.println("Random Value is " + randomValue);
 			
-			// randomNumber = Call nextInt()
+
+			char randomCharValue = allCharacters.charAt(randomValue);
 			
-			// [0 - 75]
+			System.out.println("Random Char Value " + randomCharValue);
 			
-			// 64
-			
-			// randomValue =  allCharacters.getChar(64)
-			// K, *, $
-			
-			// passwordString.append(randomValue)
+			passwordBuilder.append(randomCharValue);
 		}
 		
-		// TODO Auto-generated method stub
-		return null;
+		return passwordBuilder.toString();
 	}
 
+	@Override	
+	public String generatePassword() {
+		
+		String capitalLeters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		String smallCaseLetters = "abcdefghijklmnopqrstuvwxyz";		
+		String numbers = "0123456789";
+		String specialCharacters = "~@#$%^&*()-=+<>?'][}{";
+		
+		
+		StringBuilder passwordBuilder = new StringBuilder();
+
+		// 1st category - 2 characters		
+		for (int index = 1; index <=2; index ++) {
+			
+			java.util.Random randomObj 
+				= new java.util.Random();
+			
+			int randomValue = randomObj.nextInt(capitalLeters.length());
+			System.out.println("Random Value is " + randomValue);
+
+			char randomCharValue = capitalLeters.charAt(randomValue);
+			passwordBuilder.append(randomCharValue);
+		}
+		
+		// 2nd categoryy - 2 characters
+		for (int index = 1; index <=2; index ++) {
+			
+			java.util.Random randomObj 
+				= new java.util.Random();
+			
+			int randomValue = randomObj.nextInt(smallCaseLetters.length());
+			System.out.println("Random Value is " + randomValue);
+
+			char randomCharValue = smallCaseLetters.charAt(randomValue);
+			passwordBuilder.append(randomCharValue);
+		}		
+		
+		
+		// 3rd categoryy - 2 characters
+		for (int index = 1; index <=2; index ++) {
+			
+			java.util.Random randomObj 
+				= new java.util.Random();
+			
+			int randomValue = randomObj.nextInt(numbers.length());
+			System.out.println("Random Value is " + randomValue);
+
+			char randomCharValue = numbers.charAt(randomValue);
+			passwordBuilder.append(randomCharValue);
+		}			
+		
+		// 4th categoryy - 2 characters
+		for (int index = 1; index <=2; index ++) {
+			
+			java.util.Random randomObj 
+				= new java.util.Random();
+			
+			int randomValue = randomObj.nextInt(specialCharacters.length());
+			System.out.println("Random Value is " + randomValue);
+
+			char randomCharValue = specialCharacters.charAt(randomValue);
+			passwordBuilder.append(randomCharValue);
+		}			
+
+		return passwordBuilder.toString();
+	}	
 	@Override
 	public void displayGeneratedCredentials() {
 		// TODO Auto-generated method stub
