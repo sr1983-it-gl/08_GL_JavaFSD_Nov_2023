@@ -29,7 +29,13 @@ public class Main {
 		String password 
 			= obj.generatePassword();
 		
-		System.out.println(password);
-		
+		System.out.println(password);		
 	}
+	
+//	static void testApplicationEntryPoint() {
+//		
+//		EmailApplication emailApplication = new EmailApplication();
+//		
+//		emailApplication.init();
+//	}
 }
