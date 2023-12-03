@@ -63,11 +63,13 @@ public class CredentialsManagerServiceImpl
 		String numbers = "0123456789";
 		String specialCharacters = "~@#$%^&*()-=+<>?'][}{";
 		
-		// 75
 		String allCharacters = 
 				capitalLeters + smallCaseLetters
 				+ numbers + specialCharacters;
-//			TODO -> Include numbers and specialCharacters
+		// 83
+		// A...Z a .. z 0....9 @#.....)
+		// 17 36 8 4 55 78 1 9 125 [Error]
+		// T m J
 		
 		System.out.println("Total number of characters identified ");
 		System.out.println(allCharacters.length());
@@ -104,8 +106,7 @@ public class CredentialsManagerServiceImpl
 		String smallCaseLetters = "abcdefghijklmnopqrstuvwxyz";		
 		String numbers = "0123456789";
 		String specialCharacters = "~@#$%^&*()-=+<>?'][}{";
-		
-		
+				
 		StringBuilder passwordBuilder = new StringBuilder();
 
 		// 1st category - 2 characters		
