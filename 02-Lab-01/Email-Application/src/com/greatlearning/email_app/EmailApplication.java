@@ -22,15 +22,23 @@ public class EmailApplication {
 		System.out.println("4. Legal");
 		
 		int departmentCode = input.nextInt();
+
 		
-		// Make use of the Scanner object
+		// Integrate the email address generation
+		// emailAddress
 		
-		// firstname
+		CredentialsManagerServiceImpl serviceObj = 
+			new CredentialsManagerServiceImpl();
 		
-		// last name
+		String emailAddress  = serviceObj.generateEmailAddress(
+				firstname, lastname, departmentCode);
 		
-		// Department Code
+		System.out.println(emailAddress);
 		
-		// 
+		// Integrate the password
+		// password
+		
+		String password = serviceObj.generatePassword();
+		System.out.println(password);
 	}
 }

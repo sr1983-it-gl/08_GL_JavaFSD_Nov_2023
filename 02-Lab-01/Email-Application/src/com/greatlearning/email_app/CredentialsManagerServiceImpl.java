@@ -69,7 +69,8 @@ public class CredentialsManagerServiceImpl
 		// 83
 		// A...Z a .. z 0....9 @#.....)
 		// 17 36 8 4 55 78 1 9 125 [Error]
-		// T m J
+		// T m J & 9 t 
+		//
 		
 		System.out.println("Total number of characters identified ");
 		System.out.println(allCharacters.length());
@@ -116,7 +117,7 @@ public class CredentialsManagerServiceImpl
 				= new java.util.Random();
 			
 			int randomValue = randomObj.nextInt(capitalLeters.length());
-			System.out.println("Random Value is " + randomValue);
+//			System.out.println("Random Value is " + randomValue);
 
 			char randomCharValue = capitalLeters.charAt(randomValue);
 			passwordBuilder.append(randomCharValue);
@@ -129,7 +130,7 @@ public class CredentialsManagerServiceImpl
 				= new java.util.Random();
 			
 			int randomValue = randomObj.nextInt(smallCaseLetters.length());
-			System.out.println("Random Value is " + randomValue);
+//			System.out.println("Random Value is " + randomValue);
 
 			char randomCharValue = smallCaseLetters.charAt(randomValue);
 			passwordBuilder.append(randomCharValue);
@@ -143,7 +144,7 @@ public class CredentialsManagerServiceImpl
 				= new java.util.Random();
 			
 			int randomValue = randomObj.nextInt(numbers.length());
-			System.out.println("Random Value is " + randomValue);
+//			System.out.println("Random Value is " + randomValue);
 
 			char randomCharValue = numbers.charAt(randomValue);
 			passwordBuilder.append(randomCharValue);
@@ -156,7 +157,7 @@ public class CredentialsManagerServiceImpl
 				= new java.util.Random();
 			
 			int randomValue = randomObj.nextInt(specialCharacters.length());
-			System.out.println("Random Value is " + randomValue);
+//			System.out.println("Random Value is " + randomValue);
 
 			char randomCharValue = specialCharacters.charAt(randomValue);
 			passwordBuilder.append(randomCharValue);

@@ -6,7 +6,9 @@ public class Main {
 		
 //		testEmailAddressGeneration();
 		
-		testPasswordGeneration();
+//		testPasswordGeneration();
+		
+		testApplicationEntryPoint();	
 	}
 
 	static void testEmailAddressGeneration(){
@@ -32,10 +34,10 @@ public class Main {
 		System.out.println(password);		
 	}
 	
-//	static void testApplicationEntryPoint() {
-//		
-//		EmailApplication emailApplication = new EmailApplication();
-//		
-//		emailApplication.init();
-//	}
+	static void testApplicationEntryPoint() {
+		
+		EmailApplication emailApplication = new EmailApplication();
+		
+		emailApplication.init();
+	}
 }
