@@ -58,6 +58,36 @@ public class CredentialsManagerServiceImpl
 
 	@Override
 	public String generatePassword() {
+		
+		String capitalLeters = "A.... Z";
+		String smallCaseLetters = "a....z";
+		
+		String numbers = "0....9";
+		String specialCharacters = "~@#$%... <>?";
+		
+		String allCharacters = 
+				capitalLeters + smallCaseLetters;
+//			TODO -> Include numbers and specialCharacters
+		
+		
+		for (int index = 1; index <=8; index ++) {
+			
+			java.util.Random randomObj 
+				= new java.util.Random();
+			
+			
+			// randomNumber = Call nextInt()
+			
+			// [0 - 75]
+			
+			// 64
+			
+			// randomValue =  allCharacters.getChar(64)
+			// K, *, $
+			
+			// passwordString.append(randomValue)
+		}
+		
 		// TODO Auto-generated method stub
 		return null;
 	}
