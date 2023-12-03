@@ -45,5 +45,6 @@ public class EmailApplication {
 			= new Employee(firstname, lastname, emailAddress);
 		empObj.setPassword(password);
 		
+		serviceObj.displayGeneratedCredentials(empObj);
 	}
 }

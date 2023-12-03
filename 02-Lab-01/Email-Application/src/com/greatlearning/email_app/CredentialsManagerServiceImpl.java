@@ -168,10 +168,11 @@ public class CredentialsManagerServiceImpl
 	@Override
 	public void displayGeneratedCredentials(Employee employee) {
 		
+		System.out.println("Dear " + employee.getFirstname()
+				+ ", your generated credentials are as follows");
 		
-		
-		// TODO Auto-generated method stub
-		
+		System.out.println("Email        --->  " + employee.getEmailAddress());
+		System.out.println("Password     --->  " + employee.getPassword());		
 	}
 
 }
