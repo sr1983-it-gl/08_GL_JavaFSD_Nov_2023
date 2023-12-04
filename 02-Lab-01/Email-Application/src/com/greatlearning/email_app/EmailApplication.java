@@ -23,28 +23,38 @@ public class EmailApplication {
 		
 		int departmentCode = input.nextInt();
 
+		if (EmailAppUtils.validateDepartmentCode(departmentCode)) {
+			
+			// Integrate the email address generation
+			// emailAddress
+			
+			CredentialsManagerServiceImpl serviceObj = 
+				new CredentialsManagerServiceImpl();
+			
+			
+			String emailAddress  = serviceObj.generateEmailAddress(
+					firstname, lastname, departmentCode);
+			
+			System.out.println(emailAddress);
+			
+			// Integrate the password
+			// password
+			
+			String password = serviceObj.generatePassword();
+			System.out.println(password);
+			
+			Employee empObj 
+				= new Employee(firstname, lastname, emailAddress);
+			empObj.setPassword(password);
+			
+			serviceObj.displayGeneratedCredentials(empObj);			
+		}else {
+			
+			System.out.println("Invalid Department Code");
+			System.out.println("Enter a department code between 1 and 4");
+			System.out.println("Please try again...");
+		}
 		
-		// Integrate the email address generation
-		// emailAddress
 		
-		CredentialsManagerServiceImpl serviceObj = 
-			new CredentialsManagerServiceImpl();
-		
-		String emailAddress  = serviceObj.generateEmailAddress(
-				firstname, lastname, departmentCode);
-		
-		System.out.println(emailAddress);
-		
-		// Integrate the password
-		// password
-		
-		String password = serviceObj.generatePassword();
-		System.out.println(password);
-		
-		Employee empObj 
-			= new Employee(firstname, lastname, emailAddress);
-		empObj.setPassword(password);
-		
-		serviceObj.displayGeneratedCredentials(empObj);
 	}
 }
