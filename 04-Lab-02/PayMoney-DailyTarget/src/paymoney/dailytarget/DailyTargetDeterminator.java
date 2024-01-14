@@ -62,6 +62,36 @@ public class DailyTargetDeterminator {
 	
 	void determine() {		
 		
+		boolean dailyTargetAchieved = false;
+		Integer overallSumOfTransactionValues = 0;
+		int transactionInstancesCounter = 0;
+		
+		for (int index = 0; index < transactionsList.length; index ++) {
+			
+			
+			transactionInstancesCounter ++;
+			
+			Integer trasactionValue = transactionsList[index];
+			
+			overallSumOfTransactionValues =
+					overallSumOfTransactionValues + trasactionValue;
+			
+			if (overallSumOfTransactionValues >= dailyTarget) {
+				
+				dailyTargetAchieved = true;
+				break;
+			}
+		}
+		
+		if (dailyTargetAchieved) {
+			System.out.println("Daily Target is achieved");
+			System.out.printf("Achieved after %d Instances",
+				transactionInstancesCounter);
+			
+		}else {
+			System.out.println("Daily Target NOT achieved");
+		}
+		
 		/* overallTransactionSum
 		 * int counter = 0;
 		 * for (... )

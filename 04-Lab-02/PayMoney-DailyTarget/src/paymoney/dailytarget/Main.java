@@ -34,5 +34,7 @@ public class Main {
 		
 		determinator.collectTransactionValues();
 		determinator.collectDailyTarget();
+		
+		determinator.determine();
 	}
 }
