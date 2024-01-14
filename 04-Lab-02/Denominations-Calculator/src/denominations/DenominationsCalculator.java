@@ -1,5 +1,6 @@
 package denominations;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Scanner;
 
@@ -62,5 +63,11 @@ public class DenominationsCalculator {
 		
 			// Pending / BalanceAmount == 0
 				// break
+		
+//		Collections.sor
+		Arrays.sort(denominations, Collections.reverseOrder());
+		
+		System.out.println("After sorting...");
+		System.out.println(Arrays.toString(denominations));
 	}
 }
