@@ -9,10 +9,23 @@ public class Main {
 		
 //		calculator.collectDenominations();
 //		calculator.collectPaymentAmount();
+
+		// Example-02
+//		calculator.denominations = 
+//			new Integer[]{60, 5, 12, 78, 25};
+//		calculator.paymentAmount = 128;
+
 		
+		// Example-03
+//		calculator.denominations = 
+//			new Integer[]{12, 5, 123, 18};
+//		calculator.paymentAmount = 158;
+
+		
+		// Example-05
 		calculator.denominations = 
-			new Integer[]{60, 5, 12, 78, 25};
-		calculator.paymentAmount = 128;
+			new Integer[]{12, 5, 123, 18};
+		calculator.paymentAmount = 160;
 		
 		calculator.calculate();
 	}

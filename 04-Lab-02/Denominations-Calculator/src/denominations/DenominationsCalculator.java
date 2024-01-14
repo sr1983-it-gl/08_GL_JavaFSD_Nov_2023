@@ -69,5 +69,46 @@ public class DenominationsCalculator {
 		
 		System.out.println("After sorting...");
 		System.out.println(Arrays.toString(denominations));
+		
+		int denominationIndex = 0;
+		int tPaymentAmount = paymentAmount;
+		boolean exactDenominationsSupplied = false;
+		Integer balanceAmount = 0;
+		
+		while (denominationIndex < denominations.length) {
+			
+			Integer denomination = denominations[denominationIndex];
+			
+			Integer noOfTimesDenominations = 
+					tPaymentAmount / denomination;
+			
+			balanceAmount = 
+					tPaymentAmount % denomination;
+			
+			if (noOfTimesDenominations != 0) {
+				
+				System.out.printf("Denomination : %d, NoOfTimes : %d",
+					denomination, noOfTimesDenominations);
+				System.out.println();
+			}
+			
+			
+			if (balanceAmount == 0) {
+				exactDenominationsSupplied = true;
+			}
+			
+			tPaymentAmount = balanceAmount;
+			
+			denominationIndex ++;
+		}
+		
+		if (exactDenominationsSupplied) {
+			System.out.println("Able to provide the exact denominations");
+		}else {
+			
+			
+			System.out.println("Unable to provide the exact denominations");			
+			System.out.printf("Balance Amount %d", balanceAmount);
+		}
 	}
 }
