@@ -24,7 +24,7 @@ public class DailyTargetDeterminator {
 		
 		System.out.println("Transactions List: ");
 		
-		System.out.println("Enter the Transactions List Size");
+		System.out.println("Enter the Transactions-List Size");
 		
 		Integer transactionsListSize = input.nextInt();
 		
@@ -60,8 +60,7 @@ public class DailyTargetDeterminator {
 	}
 	
 	
-	void determine() {
-		
+	void determine() {		
 		
 		/* overallTransactionSum
 		 * int counter = 0;
