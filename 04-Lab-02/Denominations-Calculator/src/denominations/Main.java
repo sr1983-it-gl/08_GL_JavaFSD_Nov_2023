@@ -7,8 +7,8 @@ public class Main {
 		DenominationsCalculator calculator
 			= new DenominationsCalculator();
 		
-//		calculator.collectDenominations();
-//		calculator.collectPaymentAmount();
+		calculator.collectDenominations();
+		calculator.collectPaymentAmount();
 
 		// Example-02
 //		calculator.denominations = 
@@ -23,9 +23,9 @@ public class Main {
 
 		
 		// Example-05
-		calculator.denominations = 
-			new Integer[]{12, 5, 123, 18};
-		calculator.paymentAmount = 160;
+//		calculator.denominations = 
+//			new Integer[]{12, 5, 123, 18};
+//		calculator.paymentAmount = 160;
 		
 		calculator.calculate();
 	}
