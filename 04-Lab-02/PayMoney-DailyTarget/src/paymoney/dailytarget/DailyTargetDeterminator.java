@@ -58,4 +58,30 @@ public class DailyTargetDeterminator {
 		
 		// Update the input to 'dailyTarget'
 	}
+	
+	
+	void determine() {
+		
+		
+		/* overallTransactionSum
+		 * int counter = 0;
+		 * for (... )
+		 * 		
+		 * 		counter ++
+		 * 		Retreive transactionnValue 
+		 * 		
+		 * 		overallTransactionSum = overallTransactionSum +
+		 * 		transactionnValue
+		 * 
+		 * 		overallTransactionSum >= DailyTarget
+		 * 			break;
+		 * 		
+		 * 		outcome -> true
+		 * 			Success
+		 * 			-> false
+		 * 			Not achieved
+		 *		
+		 * 		
+		 */
+	}
 }
