@@ -2,132 +2,93 @@ package dsa;
 
 public class ArraySlicerAndMerger {
 
-	private Integer[] array;
-	private int leftIndex;
-	private int middleIndex;
-	private int rightIndex;
+	private Integer[] originalArray;
 	
-	public ArraySlicerAndMerger(Integer[] array,
-		int leftIndex, int middleIndex, int rightIndex) {
-		
-		this.array = array;
-		this.leftIndex = leftIndex;
-		this.middleIndex = middleIndex;
-		this.rightIndex = rightIndex;
+	public ArraySlicerAndMerger(Integer originalArray[]) {
+	
+		this.originalArray = originalArray;
 	}
 	
-	public void sliceAndMerge() {
+	public void sliceAndMerge(int startIndex, int middleIndex, int endIndex) {
+				
+        
+		compareAndMerge(startIndex, middleIndex, endIndex);		
 		
 		
-		Integer[] lsa = constructLSA();
-		Integer[] rsa = constructRSA();
-		
-		
-		phase1AndPhase2(lsa, rsa);
 	}
 	
-	public void phase1AndPhase2(Integer[] lsa, Integer[] rsa) {
-		
-		
-		int maLength = lsa.length + rsa.length;
-		
-		Integer[] mergedArray = new Integer[maLength];
-		
-		int lsaPointer = 0;
-		int rsaPointer = 0;
-		int maPointer  = 0;
-		
-		// Phase 1
-		
-		while (lsaPointer < lsa.length && rsaPointer < rsa.length) {
-			
-			int lsaElement = lsa[lsaPointer];
-			int rsaElement = rsa[rsaPointer];
-			
-			if (lsaElement < rsaElement) {
-				
-				mergedArray[maPointer] = lsaElement;
-				
-				lsaPointer ++;
-				maPointer ++;
-			}else if (rsaElement < lsaElement) {
-				
-				mergedArray[maPointer] = rsaElement;
+	
+	private void compareAndMerge(int startIndex,
+			int midPointIndex, int endIndex) {
 
-				rsaPointer ++;
-				maPointer ++;				
-			}
-		}
 		
-		
-//		System.out.println("Phase 1 Complete");
-	
-	
-		// Phase 2
-		
-//		System.out.println("LSA Pointer " + lsaPointer);
-		
-		// for (int index = 1;
-		for ( ; lsaPointer < lsa.length; lsaPointer ++) {
-			
-			int lsaPendingElement = lsa[lsaPointer];
-			
-			mergedArray[maPointer] = lsaPendingElement;
-			
-			maPointer ++;
-		}
+		Integer mergedArray[] 
+			= new Integer[endIndex - startIndex + 1];
 
-	
-		for ( ; rsaPointer < rsa.length; rsaPointer ++) {
+		int leftSubArrayPointer = startIndex;
+		int rightSubArrayPointer = midPointIndex + 1;		
+		int mergedArrayPointer = 0;
+		
+				
+		
+		
+		while (leftSubArrayPointer <= midPointIndex 
+				&& rightSubArrayPointer <= endIndex) {
 			
-			int rsaPendingElement = rsa[rsaPointer];
+			Integer leftSubArrayElement = originalArray[leftSubArrayPointer];
+			Integer rightSubArrayElement = originalArray[rightSubArrayPointer];
 			
-			mergedArray[maPointer] = rsaPendingElement;			
-			maPointer ++;
+			
+			if (leftSubArrayElement <= rightSubArrayElement) {
+				
+		//	if (leftSubArrayElement > rightSubArrayElement) {
+				
+				mergedArray[mergedArrayPointer] = leftSubArrayElement;
+				leftSubArrayPointer ++;
+				mergedArrayPointer ++;
+				
+				
+			}else {
+				
+				mergedArray[mergedArrayPointer] = rightSubArrayElement;
+				rightSubArrayPointer ++;
+				mergedArrayPointer ++;	
+				
+			}		
 		}
 		
-		Utils.printArray(mergedArray);
-		
-	}
-	
-	
-	public Integer[] constructLSA(){
-		
-		int tLeftIndex = leftIndex;
-		
-		//
-		int lsaLength = (middleIndex - leftIndex) + 1;
-		Integer[] lsArray = new Integer[lsaLength];
-		
-		// lsaIndex - 0, 1, 2, 3
-		// 
-		for (int lsaIndex = 0; lsaIndex < lsArray.length; lsaIndex ++ ) {
 			
-			lsArray[lsaIndex] = array[tLeftIndex];
+		while (leftSubArrayPointer <= midPointIndex) {
 			
-			tLeftIndex ++;
+			Integer leftSubArrayElement = originalArray[leftSubArrayPointer];
+			mergedArray[mergedArrayPointer] = leftSubArrayElement;
+			
+			leftSubArrayPointer ++;
+			mergedArrayPointer ++;
+			
+			
 		}
 		
-		return lsArray;
-	}
-	
-	public Integer[] constructRSA(){
 		
-		int tRightIndex = (middleIndex + 1);
-		
-		//
-		int rsaLength = (rightIndex - middleIndex);
-		Integer[] rsArray = new Integer[rsaLength];
-		
-		// lsaIndex - 0, 1, 2, 3
-		// 
-		for (int rsaIndex = 0; rsaIndex < rsArray.length; rsaIndex ++ ) {
 			
-			rsArray[rsaIndex] = array[tRightIndex];
+		while (rightSubArrayPointer <= endIndex) {
 			
-			tRightIndex ++;
+			Integer rightSubArrayElement = originalArray[rightSubArrayPointer];
+			mergedArray[mergedArrayPointer] = rightSubArrayElement;
+			
+			rightSubArrayPointer ++;
+			mergedArrayPointer ++;
+			
+			
+		}				
+		
+		for (leftSubArrayPointer = startIndex; leftSubArrayPointer <= endIndex;
+				leftSubArrayPointer ++) {
+				
+				int tempArrayIndex2 = leftSubArrayPointer - startIndex;
+				originalArray[leftSubArrayPointer] = mergedArray[tempArrayIndex2];
 		}
 		
-		return rsArray;
+		
 	}
 }

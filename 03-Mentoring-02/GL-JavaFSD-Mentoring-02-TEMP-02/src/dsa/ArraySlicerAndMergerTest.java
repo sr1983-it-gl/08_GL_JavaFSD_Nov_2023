@@ -18,10 +18,9 @@ public class ArraySlicerAndMergerTest {
 		Integer[] input = {21, 28, 13, 19, 34, 47};
 		Utils.printArray(input);
 		
-		ArraySlicerAndMerger sm = new ArraySlicerAndMerger(input);
+		ArraySlicerAndMerger sm = new ArraySlicerAndMerger(input, 0, 1, 5);
 		
-		sm.sliceAndMerge(0, 1, 5);
-		
+		sm.sliceAndMerge();
 					
 //		Integer[] lsa = sm.constructLSA();
 //	
@@ -39,10 +38,9 @@ public class ArraySlicerAndMergerTest {
 		Integer[] input = { 13, 18, 42, 47, 15, 19 };
 		Utils.printArray(input);
 		
-		ArraySlicerAndMerger sm = new ArraySlicerAndMerger(input);
+		ArraySlicerAndMerger sm = new ArraySlicerAndMerger(input, 0, 3, 5);
 		
-		sm.sliceAndMerge(0, 3, 5);
-		
+		sm.sliceAndMerge();
 	
 //		Integer[] lsa = sm.constructLSA();
 //		
@@ -62,9 +60,9 @@ public class ArraySlicerAndMergerTest {
 		Integer[] input = { 21, 28, 32, 44, 13, 19, 34, 68, 92 };
 		Utils.printArray(input);
 		
-		ArraySlicerAndMerger sm = new ArraySlicerAndMerger(input);
+		ArraySlicerAndMerger sm = new ArraySlicerAndMerger(input, 0, 3, 8);
 		
-		sm.sliceAndMerge(0, 3, 8);		
+		sm.sliceAndMerge();
 	}	
 
 	static void test04() {
@@ -72,8 +70,9 @@ public class ArraySlicerAndMergerTest {
 		Integer[] input = { 22, 29, 33, 45, 59, 14, 20, 35 };
 		Utils.printArray(input);
 		
-		ArraySlicerAndMerger sm = new ArraySlicerAndMerger(input);
-		sm.sliceAndMerge(0, 4, 7);		
+		ArraySlicerAndMerger sm = new ArraySlicerAndMerger(input, 0, 4, 7);
+		
+		sm.sliceAndMerge();
 	}	
 
 }
