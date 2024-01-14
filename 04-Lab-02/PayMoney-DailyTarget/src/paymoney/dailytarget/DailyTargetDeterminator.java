@@ -4,7 +4,13 @@ import java.util.Scanner;
 
 public class DailyTargetDeterminator {
 
+//	int a;
+	
+	// 20, 30, 50, 80
 	Integer[] transactionsList;
+//	int[] transactionsList;
+	
+	// 125
 	Integer dailyTarget;
 	
 	Scanner input;
@@ -16,9 +22,26 @@ public class DailyTargetDeterminator {
 	
 	void collectTransactionValues(){
 		
+		System.out.println("Transactions List: ");
+		
+		System.out.println("Enter the Transactions List Size");
+		
+		Integer transactionsListSize = input.nextInt();
+		
+		transactionsList = new Integer[transactionsListSize];
+		
+		for (int index = 0; index < transactionsListSize; index ++) {
+			
+			
+			System.out.printf("Transaction Value : %d / %d", 
+					(index + 1), transactionsListSize);
+			System.out.println();
+			
+			transactionsList[index] = input.nextInt();
+		}
 		// Get scanner to get input
 		
-		// Size of transaction array
+		// Size of transaction array [4]
 		
 		// Size - for loop 
 		
@@ -28,6 +51,10 @@ public class DailyTargetDeterminator {
 	void collectDailyTarget() {
 		
 		// Use Scanner to collect the input
+		
+		System.out.println("Daily Target : ");
+		
+		dailyTarget = input.nextInt();
 		
 		// Update the input to 'dailyTarget'
 	}
