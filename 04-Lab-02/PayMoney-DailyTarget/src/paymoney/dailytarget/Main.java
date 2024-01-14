@@ -33,7 +33,7 @@ public class Main {
 			= new DailyTargetDeterminator();
 		
 		determinator.collectTransactionValues();
-		determinator.collectDailyTarget();
+		determinator.collectDailyTargets();
 		
 		determinator.determine();
 	}
