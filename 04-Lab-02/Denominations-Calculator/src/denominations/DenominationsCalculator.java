@@ -1,5 +1,6 @@
 package denominations;
 
+import java.util.Collections;
 import java.util.Scanner;
 
 public class DenominationsCalculator {
@@ -40,4 +41,26 @@ public class DenominationsCalculator {
 		
 		paymentAmount = input.nextInt();		
 	}	
+	
+	
+	public void calculate() {
+		
+		// Sorting
+//		Collections.sort(null, null);
+		
+		// Loop - while
+		
+			// 0 -> AllDenominations
+			
+			// noOfDenominations -> [
+		
+			// if (noOfDenominations != 0} {
+				
+			/// Valid Denomination
+				
+			// Pending / BalanceAmount
+		
+			// Pending / BalanceAmount == 0
+				// break
+	}
 }
