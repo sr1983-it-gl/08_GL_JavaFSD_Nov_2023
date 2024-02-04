@@ -3,7 +3,9 @@ package dsa.bst;
 public class NodeInsertionDetails {
 
 	Node parentNode;
-	NodeDirection direction;
+	
+	// LEFT / RIGHT
+	String direction;
 	
 	public Node getParentNode() {
 		return parentNode;
@@ -11,10 +13,10 @@ public class NodeInsertionDetails {
 	public void setParentNode(Node parentNode) {
 		this.parentNode = parentNode;
 	}
-	public NodeDirection getDirection() {
+	public String getDirection() {
 		return direction;
 	}
-	public void setDirection(NodeDirection direction) {
+	public void setDirection(String direction) {
 		this.direction = direction;
 	}
 }

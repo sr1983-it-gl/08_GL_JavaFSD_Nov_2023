@@ -15,9 +15,12 @@ public class BinarySearchTree {
 			// Create the new-node
 			// Call the constructNodeDetails
 			
-			// Set the relationshiip between parent-node and the new-node
+			// Set the relationship between parent-node and the new-node
 			// Left - Child / Right-Child
 			
+		
+//		if (too)
+		
 	}
 	
 	NodeInsertionDetails constructNodeDetails(){
