@@ -4,6 +4,10 @@ public class BinarySearchTree {
 
 	Node root;
 	
+	public Node getRoot() {
+		return root;
+	}
+	
 	void insert(int value) {
 		
 		// Root is NULL
@@ -54,7 +58,8 @@ public class BinarySearchTree {
 		return nid;
 	}
 	
-	void traverseTree(Node aNode, Integer data, NodeInsertionDetails details){
+	void traverseTree(Node aNode, Integer data, 
+			NodeInsertionDetails details){
 	
 		// Compare [data and aNode.data]
 		
@@ -62,8 +67,6 @@ public class BinarySearchTree {
 			// aNode.left IS NULL	
 				// Located the ParentNode
 				// Direction - LEFT
-				// aNode -> 20 -> ParentNode
-				// LEFT
 			// traverseTree(aNode.left)
 		// data > aNode.data
 			// NUll check aNode.right
@@ -71,6 +74,28 @@ public class BinarySearchTree {
 				// RIght
 			// traverseTree(aNode.right)
 		
+		if (data <= aNode.getData()) {
+			
+			Node leftNode = aNode.getLeft();
+			
+			if (leftNode != null) {
+				traverseTree(leftNode, data, details);
+			}else {
+				details.setParentNode(aNode);
+				details.setDirection("LEFT");
+			}			
+		}else {
+			
+			Node rightNode = aNode.getRight();
+			
+			if (rightNode != null) {
+				traverseTree(rightNode, data, details);
+			}else {
+				
+				details.setParentNode(aNode);
+				details.setDirection("RIGHT");
+			}
+		}
 	}
 	
 }
