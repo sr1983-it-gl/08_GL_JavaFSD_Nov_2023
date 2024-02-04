@@ -26,7 +26,7 @@ public class BinarySearchTree {
 		}else {
 			
 			NodeInsertionDetails nodeDetails 
-				= constructNodeDetails();
+				= constructNodeDetails(value);
 			
 			// 30
 			Node parentNode = nodeDetails.getParentNode();
@@ -44,10 +44,33 @@ public class BinarySearchTree {
 		
 	}
 	
-	NodeInsertionDetails constructNodeDetails(){
+	// 
+	NodeInsertionDetails constructNodeDetails(Integer data){
 		
 		NodeInsertionDetails nid = new NodeInsertionDetails();
 		
+		traverseTree(root, data, nid);
+		
 		return nid;
 	}
+	
+	void traverseTree(Node aNode, Integer data, NodeInsertionDetails details){
+	
+		// Compare [data and aNode.data]
+		
+		// data <= aNode.data
+			// aNode.left IS NULL	
+				// Located the ParentNode
+				// Direction - LEFT
+				// aNode -> 20 -> ParentNode
+				// LEFT
+			// traverseTree(aNode.left)
+		// data > aNode.data
+			// NUll check aNode.right
+				// aNode.right -> Parent
+				// RIght
+			// traverseTree(aNode.right)
+		
+	}
+	
 }
