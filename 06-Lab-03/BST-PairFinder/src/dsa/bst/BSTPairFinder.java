@@ -53,7 +53,16 @@ public class BSTPairFinder {
 					// Print the Pair [30, 70]
 	
 		
-		System.out.println(currentNode);	
+		Integer difference = (sum - currentNode.getData());
+		if (previouslyVisitedNodes.contains(difference)) {
+			
+			System.out.println("Match Identified");
+			System.out.printf("[%d, %d]", 
+					currentNode.getData(), difference);
+			System.out.println();
+		}
+		
+//		System.out.println(currentNode);	
 		this.previouslyVisitedNodes.add(currentNode.getData());
 		
 		
