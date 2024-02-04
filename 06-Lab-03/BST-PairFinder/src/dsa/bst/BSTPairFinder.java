@@ -18,8 +18,24 @@ public class BSTPairFinder {
 	
 	void preOrderTraversal() {
 		
+		// Outcome
+		// 70, 50, 30, 20, 40, 60, 90, 80, 100
+		
 		// Pre order Travel
 		// TODO
+		
+		preOrderTraveralInternal(bst.getRoot());
 	}
 	
+	void preOrderTraveralInternal(Node aNode) {
+		
+		if (aNode == null) {
+			return;
+		}
+		
+		System.out.println(aNode);
+		
+		preOrderTraveralInternal(aNode.getLeft());
+		preOrderTraveralInternal(aNode.getRight());
+	}
 }
