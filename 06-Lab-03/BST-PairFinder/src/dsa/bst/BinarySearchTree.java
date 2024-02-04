@@ -18,8 +18,29 @@ public class BinarySearchTree {
 			// Set the relationship between parent-node and the new-node
 			// Left - Child / Right-Child
 			
-		
-//		if (too)
+
+		Node newNode = new Node(value);
+
+		if (root == null) {
+			root = newNode;
+		}else {
+			
+			NodeInsertionDetails nodeDetails 
+				= constructNodeDetails();
+			
+			// 30
+			Node parentNode = nodeDetails.getParentNode();
+			
+			// RIGHT
+			String direction = nodeDetails.getDirection();
+			
+			if (direction.equals("LEFT")) {
+				
+				parentNode.setLeft(newNode);
+			}else if (direction.equals("RIGHT")) {
+				parentNode.setRight(newNode);
+			}
+		}
 		
 	}
 	
