@@ -1,0 +1,88 @@
+-- Procedures
+
+-- Example-01
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `displayCustomerOrderPricingDetails`()
+BEGIN
+
+select CD_O_BD.*, P.Price from pricing as P
+inner join (
+select 
+	CD.Name,
+	O_BD.Cust_Id,
+    CD.Connection_Type,
+    O_BD.Order_Id,
+	O_BD.Order_Date,
+    O_BD.Inv_Id,
+    O_BD.Delivery_Date,
+    monthname(O_BD.Delivery_Date) as 'Month',
+    year (O_BD.Delivery_Date) as 'Year'
+ from cust_details as CD
+inner join (
+
+select O.Id as Order_Id, O.Date as Order_Date, O.Cust_Id,
+	BD.Inv_Id,
+    BD.Delivery_Date
+  from Orders as O
+	inner join (
+		select Inv_Id, Order_Id, date as 'Delivery_Date' 
+        from billing_details
+		where Delivery_Status = 'Delivered')
+	as BD
+ON O.Id = BD.Order_Id
+) as O_BD
+ON CD.Id = O_BD.Cust_Id
+) as CD_O_BD
+ON (
+	P.Type = CD_O_BD.Connection_Type AND
+    P.Year = CD_O_BD.Year AND
+    P.Month = CD_O_BD.Month
+);
+
+
+
+END
+
+-- Invoke Procedure
+
+call displayCustomerOrderPricingDetails();
+
+
+-- Example-02
+
+-- Additional Data
+insert into pricing values(14.2, 'February', 2024, 2100); 
+insert into pricing values(19.0, 'February', 2024, 2230); 
+insert into pricing values(5.0, 'February', 2024, 1700); 
+
+
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `PriceOfCurrentMonth`()
+BEGIN
+
+select * from pricing
+where (Month, Year) IN (
+select monthname(curdate()) as 'CurrentMonth', year(curdate()) as 'Current Year'
+);
+
+END
+
+-- Invoke Procedure
+
+call PriceOfCurrentMonth();
+
+
+-- Example-03
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `PriceOfCylinders`(
+	MONTH VARCHAR(20),
+    YEAR INT
+)
+BEGIN
+
+select * from pricing P where P.Month = MONTH AND P.Year = YEAR;
+
+END
+
+call PriceOfCylinders('January', 2021);
+
