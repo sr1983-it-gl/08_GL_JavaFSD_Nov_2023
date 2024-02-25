@@ -46,3 +46,10 @@ from `order` o
 on (o.PRICING_ID = sp.PRICING_ID AND sp.PRO_ID = p.PRO_ID)
 where o.ORD_DATE >= "2021-10-05"
 group by p.PRO_ID;
+
+- Question-08
+
+SELECT cus_id, cus_name FROM ecommerce.customer where 
+	cus_name like 'A%' 
+		OR 
+    cus_name like '%A';
