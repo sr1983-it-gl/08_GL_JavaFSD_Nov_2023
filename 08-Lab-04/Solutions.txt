@@ -53,3 +53,19 @@ SELECT cus_id, cus_name FROM ecommerce.customer where
 	cus_name like 'A%' 
 		OR 
     cus_name like '%A';
+
+- Question-09
+
+-- join [rating -> order -> supplier_pricing -> supplier]
+-- supp_id, supp_name, order_infomration [ord_id], rating [order]
+-- average rating [] avg(), group_by supp_id [] -> rating [supplier]
+	-- supp_id, supp_name, avg_rating
+    -- 5 records
+-- add a pseudo column [Type_ofService]
+	-- sql case []
+    -- supp_id, supp_name, avg_rating, type_of_service
+    -- 5 records
+    
+-- procedure
+	-- display_supplier_rating_details
+
