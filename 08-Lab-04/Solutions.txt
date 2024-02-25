@@ -56,6 +56,8 @@ SELECT cus_id, cus_name FROM ecommerce.customer where
 
 - Question-09
 
+- Analysis
+===========
 -- join [rating -> order -> supplier_pricing -> supplier]
 -- supp_id, supp_name, order_infomration [ord_id], rating [order]
 -- average rating [] avg(), group_by supp_id [] -> rating [supplier]
@@ -69,6 +71,35 @@ SELECT cus_id, cus_name FROM ecommerce.customer where
 -- procedure
 	-- display_supplier_rating_details
 
+SQL Statement
+================
+SELECT SUPP_ID, SUPP_NAME, AverageRating, 
+	CASE
+		WHEN AverageRating = 5 THEN 'Excellent Service'
+        WHEN AverageRating > 4 THEN 'Good Service'
+        WHEN AverageRating > 2 THEN 'Average Service'
+        ELSE 'Poor Service'
+    END As ServiceType
+ FROM (
+select s.SUPP_ID, s.SUPP_NAME, avg(r.RAT_RATSTARS) AverageRating
+from rating r
+	inner join `order` o
+    inner join supplier_pricing sp
+    inner join supplier s
+on (
+r.ORD_ID = o.ORD_ID AND
+o.PRICING_ID = sp.PRICING_ID AND
+sp.SUPP_ID = s.SUPP_ID
+)
+group by supp_id
+) as R_O_SP_S;
+
+
+Procedure
+===========
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `DisplaySupplierRatingDetails`()
+BEGIN
 
 SELECT SUPP_ID, SUPP_NAME, AverageRating, 
 	CASE
@@ -91,6 +122,12 @@ sp.SUPP_ID = s.SUPP_ID
 group by supp_id
 ) as R_O_SP_S;
 
+END
+
+
+Call Procedure
+=================
+call DisplaySupplierRatingDetails();
 
 
 
