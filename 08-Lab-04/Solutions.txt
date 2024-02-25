@@ -1,4 +1,5 @@
 
+
 - Question-03
 
 select C_O.CUS_GENDER as 'Gender', count(C_O.CUS_GENDER) as 'NoOfCustomers' from (
@@ -36,11 +37,27 @@ on s.supp_id = sp.supp_id
 - Question-06
 
 # Initial Analysis
+=====================
 
 -- examine category, product, supplier_prcing
 -- join [product, category, supplier_prcing]
 -- min(sp.supp_price) - groupby (pro_id)
 -- duplicate records
+
+# QUERY
+===========
+
+
+select P_SP.* from category C
+inner join (
+select P.cat_id, P.pro_id, P.pro_name, Minimal_Product_Price from product P inner join (
+select pro_id, min(SUPP_PRICE) Minimal_Product_Price from supplier_pricing
+group by pro_id
+) as SP
+on p.PRO_ID = SP.PRO_ID
+) as P_SP 
+ON (C.CAT_ID = P_SP.CAT_ID)
+
 
 - Question-07
 
