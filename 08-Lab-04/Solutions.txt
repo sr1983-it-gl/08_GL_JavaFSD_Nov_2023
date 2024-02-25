@@ -34,7 +34,13 @@ on s.supp_id = sp.supp_id
 
 
 - Question-06
-- ?
+
+# Initial Analysis
+
+-- examine category, product, supplier_prcing
+-- join [product, category, supplier_prcing]
+-- min(sp.supp_price) - groupby (pro_id)
+-- duplicate records
 
 - Question-07
 
