@@ -24,4 +24,24 @@ public class BookServiceImpl
 		return allBooks;
 	}
 
+	@Override
+	public void save(Book book) {
+		
+		bookRepository.save(book);			
+	}
+
+	@Override
+	public Book findByID(Integer bookId) {
+		
+		return 
+		bookRepository.findById(bookId).get();
+	}
+
+	@Override
+	public void deleteByID(Integer bookID) {
+		
+		
+		bookRepository.deleteById(bookID);		
+	}
+
 }

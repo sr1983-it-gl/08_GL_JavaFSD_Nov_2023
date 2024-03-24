@@ -8,4 +8,10 @@ public interface BookService {
 
 	List<Book>	listBooks();
 	
+	void save(Book book);
+	
+	Book findByID(Integer bookId);
+
+	void deleteByID(Integer bookID);
+	
 }
