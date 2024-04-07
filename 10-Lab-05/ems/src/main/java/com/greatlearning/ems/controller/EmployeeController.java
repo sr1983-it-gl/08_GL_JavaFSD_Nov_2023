@@ -13,14 +13,14 @@ import com.greatlearning.ems.service.EmployeeService;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-
+@RequestMapping("/employees")
 @Controller
 public class EmployeeController {
 
 	@Autowired
 	EmployeeService employeeService;
 	
-	@RequestMapping("/employees/list")
+	@RequestMapping("/list")
 	public String listAllEmployees(Model model){
 		
 		List<Employee> employees = employeeService.list();
@@ -31,7 +31,7 @@ public class EmployeeController {
 	}
 	
 	
-	@RequestMapping("/employees/showEmployeeForm_Save")
+	@RequestMapping("/showEmployeeForm_Save")
 	public String saveEmployee_Step1(Model theModel) {
 
 	    // create model attribute to bind form data
@@ -42,7 +42,7 @@ public class EmployeeController {
 	    return "employee-form";
 	}    
 
-	@PostMapping("/employees/save")
+	@PostMapping("/save")
 	public String saveEmployee(
 	    @ModelAttribute("employee") Employee employee) {
 	    
