@@ -15,14 +15,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import org.springframework.web.bind.annotation.RequestParam;
 
-@RequestMapping("/employees")
+//@RequestMapping("/employees")
 @Controller
 public class EmployeeController {
 
 	@Autowired
 	EmployeeService employeeService;
 	
-	@RequestMapping("/list")
+	@RequestMapping("/employees/list")
 	public String listAllEmployees(Model model){
 		
 		List<Employee> employees = employeeService.list();
@@ -33,7 +33,7 @@ public class EmployeeController {
 	}
 	
 	
-	@RequestMapping("/showEmployeeForm_Save")
+	@RequestMapping("/employees/showEmployeeForm_Save")
 	public String saveEmployee_Step1(Model theModel) {
 
 	    // create model attribute to bind form data
@@ -44,7 +44,7 @@ public class EmployeeController {
 	    return "employee-form";
 	}    
 
-	@PostMapping("/save")
+	@PostMapping("/employees/save")
 	public String saveEmployee(
 	    @ModelAttribute("employee") Employee employee) {
 	    
@@ -55,7 +55,7 @@ public class EmployeeController {
 	    return "redirect:/employees/list";
 	}
 
-	@RequestMapping("/showEmployeeForm_Update")
+	@RequestMapping("/employees/showEmployeeForm_Update")
 	public String updateEmployee_Step1(
 	    @RequestParam("employeeId") Long employeeId,
 	    Model theModel) {
@@ -69,6 +69,18 @@ public class EmployeeController {
 	    // send over to our form
 	    return "employee-form";   
 	}    
+	
+	
+	@RequestMapping("/employees/delete")
+	public String delete(
+	    @RequestParam("employeeId") Long employeeId) {
+
+	    // delete the Employee
+	    employeeService.deleteById(employeeId);
+
+	    // redirect to Employees-Listing page
+	    return "redirect:/employees/list";
+	}
 	
 }
 
