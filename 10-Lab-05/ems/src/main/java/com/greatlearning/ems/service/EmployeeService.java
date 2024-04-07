@@ -9,4 +9,7 @@ public interface EmployeeService {
 	List<Employee> list();
 	
 	public void save(Employee employee);
+
+	public Employee findById(Long employeeID);	
 }
+

@@ -13,6 +13,8 @@ import com.greatlearning.ems.service.EmployeeService;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import org.springframework.web.bind.annotation.RequestParam;
+
 @RequestMapping("/employees")
 @Controller
 public class EmployeeController {
@@ -52,6 +54,21 @@ public class EmployeeController {
 	    // use a redirect to prevent duplicate submissions
 	    return "redirect:/employees/list";
 	}
+
+	@RequestMapping("/showEmployeeForm_Update")
+	public String updateEmployee_Step1(
+	    @RequestParam("employeeId") Long employeeId,
+	    Model theModel) {
+
+	    // get the employee from the service
+	    Employee employee = employeeService.findById(employeeId);
+
+	    // set Employee as a model attribute to pre-populate the form
+	    theModel.addAttribute("employee", employee);
+
+	    // send over to our form
+	    return "employee-form";   
+	}    
 	
 }
 
