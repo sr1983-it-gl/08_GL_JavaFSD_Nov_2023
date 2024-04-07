@@ -10,6 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.greatlearning.ems.entity.Employee;
 import com.greatlearning.ems.service.EmployeeService;
 
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+
+
 @Controller
 public class EmployeeController {
 
@@ -25,4 +29,29 @@ public class EmployeeController {
 		
 		return "list-employees";
 	}
+	
+	
+	@RequestMapping("/employees/showEmployeeForm_Save")
+	public String saveEmployee_Step1(Model theModel) {
+
+	    // create model attribute to bind form data
+	    Employee employee = new Employee();
+
+	    theModel.addAttribute("employee", employee);
+
+	    return "employee-form";
+	}    
+
+	@PostMapping("/employees/save")
+	public String saveEmployee(
+	    @ModelAttribute("employee") Employee employee) {
+	    
+	    // save the employee
+	    employeeService.save(employee);
+	    
+	    // use a redirect to prevent duplicate submissions
+	    return "redirect:/employees/list";
+	}
+	
 }
+
