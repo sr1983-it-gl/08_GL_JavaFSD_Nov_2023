@@ -31,6 +31,14 @@
 	  <c:url var="addUrl" value="/books/displayBookForm" />
 	  <a href="${addUrl}" class="btn btn-primary btn-sm mb-3"> Add Book
 	  </a>  
+	  
+	  
+<!-- Add Logout button -->
+  <c:url var="logoutUrl" value="/logout" />
+  <a href="${logoutUrl}" class="btn btn-primary btn-sm mb-3 mx-auto">
+    Logout 
+  </a>  
+	  
 
 		<c:url var="searchUrl" value="/books/search" />
 		<form action="${searchUrl}" class="form-inline">

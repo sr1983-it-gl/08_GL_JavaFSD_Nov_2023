@@ -1,5 +1,6 @@
 package com.greatlearning.slma.controller;
 
+import java.security.Principal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.greatlearning.slma.entity.Book;
 import com.greatlearning.slma.service.BookService;
@@ -121,4 +123,21 @@ public class BookController {
     	}
     	
     }
+    
+    
+    @RequestMapping(value = "/403")
+    public ModelAndView handleAccessDeniedError(Principal user) {
+
+      ModelAndView model = new ModelAndView();
+
+      if (user != null) {
+        model.addObject("msg", "Hi " + user.getName() + ", you do not have permission to access this page!");
+      } else {
+        model.addObject("msg", "You do not have permission to access this page!");
+      }
+
+      model.setViewName("authorization-error-403");
+      return model;
+    }    
+    
 }
