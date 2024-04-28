@@ -11,4 +11,5 @@ public interface StudentService {
 	  public void save(Student student);
 	  public Student findById(int id);
 
+	  public void deleteById(int id);	  
 }
