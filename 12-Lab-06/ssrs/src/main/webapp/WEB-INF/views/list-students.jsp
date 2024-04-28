@@ -35,6 +35,13 @@
 		    <a href="${addUrl}" class="btn btn-primary btn-sm mb-3"> Add Student
 		    </a>
 		
+		
+			<!-- Add Logout button -->
+			  <c:url var="logoutUrl" value="/logout" />
+			  <a href="${logoutUrl}" class="btn btn-primary btn-sm mb-3 mx-auto">
+			    Logout 
+			  </a>  
+		
 		  </form>  
 
 		<table class="table table-bordered table-striped">

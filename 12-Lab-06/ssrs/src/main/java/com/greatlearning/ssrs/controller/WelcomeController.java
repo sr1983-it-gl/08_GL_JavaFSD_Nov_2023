@@ -10,4 +10,10 @@ public class WelcomeController {
 	public String displayWelcomePage() {
 		return "welcome";
 	}
+
+	@RequestMapping("/")
+	public String rootContextPathAccess() {
+		return "redirect:/students/list";
+	}
+
 }
