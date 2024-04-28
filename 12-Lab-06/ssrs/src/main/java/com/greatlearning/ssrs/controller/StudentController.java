@@ -54,6 +54,13 @@ public class StudentController {
         System.out.println("Add Student Scenario");
       } else {
 
+    	  studentObj = studentService.findById(id);
+    	  
+	    studentObj.setFirstName(firstName);
+	    studentObj.setLastName(lastName);
+	    studentObj.setCourse(course);
+	    studentObj.setCountry(country);    
+    	  
         System.out.println("Update Student Scenario");
       }
 
@@ -63,5 +70,20 @@ public class StudentController {
       // use a redirect to 'students-listing'
       return "redirect:/students/list";
     }         
+    
+    
+    @RequestMapping("/displayStudentForm_Update")
+    public String updateStudent_Step1(
+        @RequestParam("studentId") int studentId,
+            Model theModel) {
+
+        Student student = studentService.findById(studentId);
+
+        // set 'student' as a model attribute to pre-populate the form
+        theModel.addAttribute("student", student);
+
+        // send over to our form
+        return "student-form";   
+    }  
     
 }
